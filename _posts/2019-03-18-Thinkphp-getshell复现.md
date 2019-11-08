@@ -7,7 +7,9 @@ tags: 渗透测试
 由于框架对控制器名没有进行足够的检测，会导致在没有开启强制路由的情况下可能的getshell漏洞，受影响的版本包括5.0和5.1版本，推荐尽快更新到最新版本。
 
 ![图标](https://static.dingtalk.com/media/lALPDgQ9rM46LpvNAfTNA4Q_900_500.png)
+
 <!--more-->
+
 参考链接：https://blog.thinkphp.cn/869075
 ## 二、测试payload
 其实我一直等一个大佬分析漏洞原理，但是没有看到圈子里有人发表相关文章，只好自己来告诉大家这个漏洞的消息。但是由于本人实在是技术小白，所以写不出来漏洞原理，只能发一波payload了
@@ -31,8 +33,10 @@ docker pull docker.io/clarencep/tp5-dev
 docker run -d --name thinkphp5 -p 8000:8000 docker.io/clarencep/tp5-dev
 ```
 - 然后就可以访问http://ip:8000来看一下是否成功  
+
 ![测试环境](https://images-cdn.shimo.im/anrkeZR5YHosWG5t__thumbnail)  
 - 确认成功跑起来之后选一个payload来访问就可以了  
+
 ![测试payload](https://images-cdn.shimo.im/WD0eNDELsyscHQN2__thumbnail)  
 ## 四、愉快玩耍
 - 有了payload，就可以写一个简单的脚本来玩了
@@ -69,7 +73,9 @@ poc(site,command)
 ```
 - 我在脚本里写了几个随便在网上找的代理IP，大家也可以写自己的  
 - 去shodan上看一眼：
+
 ![shodan](https://images-cdn.shimo.im/rHUy523VPVYwhuOt__thumbnail)  
-- 哇，好多thinkphp5的网站，随便挑一个    
+- 哇，好多thinkphp5的网站，随便挑一个  
+
 ![上手](https://images-cdn.shimo.im/nncjpXyHhSYvKVTY__thumbnail)  
 - 我早上看的时候还好好地，现在已经被人传进去这么多马了，还有asp的，真的娘的是个人才
