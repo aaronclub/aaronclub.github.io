@@ -5,6 +5,8 @@ tags: 渗透测试
 # thinkphp5任意命令执行漏洞复现
 ## 一、漏洞详情
 由于框架对控制器名没有进行足够的检测，会导致在没有开启强制路由的情况下可能的getshell漏洞，受影响的版本包括5.0和5.1版本，推荐尽快更新到最新版本。
+
+![图标](https://static.dingtalk.com/media/lALPDgQ9rM46LpvNAfTNA4Q_900_500.png)
 <!--more-->
 参考链接：https://blog.thinkphp.cn/869075
 ## 二、测试payload
